@@ -1,0 +1,176 @@
+@font-face {
+    font-family: "Tw Cen Mt";
+    src: url(TCM_____.TTF) format("truetype");
+}
+
+html {
+	background-color: hsl(36, 12.8%, 7.6%);
+	font-family: "Tw Cen Mt", sans-serif;
+}
+
+#navbar {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	min-width: 290px;
+	height: 100%;
+	border-right: solid;
+	border-width: 2px;
+	border-color: hsl(60, 100%, 95.7%);
+	font-size: 30px;
+}
+
+
+
+#navbar header {
+	font-size: 36px;
+	text-align: center;
+	margin: 40px 0px;
+	color: hsl(60, 10%, 68.6%);
+	border: 0px solid;
+	border-color: hsl(60, 10%, 68.6%);
+
+	padding: 0px 0px;
+}
+
+#navbar ul{
+  height:88%;
+  overflow-y:auto;
+  overflow-x:hidden;
+}
+
+#navbar li {
+	border: 2px solid;
+	border-color: hsl(60, 100%, 95.7%);
+	border-top-width: 0px;
+	padding:30px 8px;
+	padding-left:45px;
+	list-style: none;
+	position: relative;
+	left: -55px;
+	width:100%;
+}
+
+.nav-link {
+	text-decoration: none;
+}
+
+a {
+	color: hsl(60, 10%, 68.6%);
+}
+
+li {
+	text-decoration: none;
+}
+
+section {
+	background-color: hsl(40, 9.7%, 12.2%);
+	padding: 40px;
+}
+
+section header {
+	font-size: 54px;
+}
+
+img {
+	width: 30%;
+	position: relative;
+	left: 30%;
+	padding-bottom: 20px;
+}
+
+section p{
+  margin:40px;
+  margin-right: 200px;
+  font-size:34px;
+  line-height: 45px;
+}
+
+section li {
+  margin:15px 0 0 80px;
+  font-size: 34px;
+}
+
+#main-doc {
+	color: hsl(60, 100%, 95.7%);
+	position: absolute;
+	margin-left:410px;
+	padding:40px;
+	margin-bottom:0px;
+	padding-bottom: 0px;
+	width: 72.5%;
+}
+
+code{
+	color: hsl(40, 9.7%, 12.2%);
+	font-size: 30px;
+	display: block;
+	position: relative;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 2;
+    background-color: hsl(60, 100%, 95.7%);
+	padding:15px;
+	margin:40px;
+	margin-right: 80px;
+    border-radius:5px;
+    text-align: left;
+}
+
+@media only screen and (max-width: 815px) {
+	#navbar ul{	
+		height:207px;
+	}
+    #navbar{
+		position:absolute;
+		top:0;
+		padding:0;
+		margin: 0;
+		width:100%;
+		max-height:275px;
+		border:none;
+		z-index:1;
+    }
+	
+	#main-section{
+		padding: 20px;
+	}
+	
+	section p{
+	  margin:35px 5px;
+	  font-size:34px;
+	  line-height: 45px;
+	  font-size: 30px;
+	  line-height: 40px;
+	}	
+	
+	section header {
+		text-align: center;
+		font-size: 40px;
+	}
+	
+	code {
+		font-size: 24px;
+		padding-left: 20px;
+	}
+	
+	section li {
+		font-size: 28px;
+		margin-left: 15px;
+	}
+	
+	#main-doc{
+		position: relative;
+		margin-left:0px;
+		margin-right: 0px;
+		margin-top:340px;
+		width: 95%;
+		padding-left: 2%;
+		padding-right: 0%;
+	}
+	
+	img {
+		left: 15%;
+		width: 70%;
+	}
+}
