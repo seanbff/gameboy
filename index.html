@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="tech.css">
+	<style>
+	@media(max-width: 1px) {
+		html {
+			color: green;
+		}
+	}
+	</style>
+</head>
+<body>
+	<nav id="navbar">
+		<header id="gb-doc">GB Documentation</header>
+		<ul> 
+			<a class="nav-link" href="#foreword" rel="internal"><li style="border-top-width: 2px;">foreword</li></a>
+			<a class="nav-link" href="#hardware_specifications" rel="internal"><li>hardware specifications</li></a>
+			<a class="nav-link" href="#command_overview" rel="internal"><li>command overview</li></a>
+			<a class="nav-link" href="#sgb_commands" rel="internal"><li>sgb commands</li></a>
+			<a class="nav-link" href="#appendix_a" rel="internal"><li id="appen">appendix a</li></a>
+		</ul>
+	</nav>
+	<main id="main-doc">
+	<img src="gb.png" alt="GameBoy logo">
+		<section class="main-section" id="foreword">
+			<header>FOREWORD</header>
+			<p> This Document was designed to help you programming the
+Game BoyTM Classic, Game BoyTM Pocket, Super Game BoyTM
+and Game BoyTM Color (basics - you will need additional
+documents for GBC specific programming). It was ment to
+be a complete handbook to start right off coding for
+the hardware. The documents consists of three major
+parts.</p>
+			<p> The first is the 'GBSpec.txt' (also known as the Pan
+Document) by Pan of Anthrox, Marat Fayzullin, Pascal
+Felber, Paul Robson, Martin Korth, kOOPa. This will be
+found in paragraph 1.
+			</p>
+		</section>
+		<section class="main-section" id="hardware_specifications">
+			<header>HARDWARE SPECIFICATIONS</header>
+			<p>The following was typed up for informational purposes
+regarding the inner workings on the hand-held game
+machine known as Game Boy, manufactured and designed by
+Nintendo Co., LTD. This info is presented to inform a
+user on how their Game Boy works and what makes it
+"tick". GameBoy is copyrighted by Nintendo Co., LTD.
+Any reference to copyrighted material is not presented
+for monetary gain, but for educational purposes and
+higher learning.</p>
+			<ul>
+				<li>GB = Original GameBoy (GameBoy Classic)</li>
+				<li>GBP = GameBoy Pocket/GameBoy Light</li>
+				<li>GBC = GameBoy Color</li>
+				<li>SGB = Super GameBoy</li>
+				<li>SP = GameBoy SP</li>
+			</ul>
+			<code>
+			function greetMe(yourName) { <br>
+			alert("Hello " + yourName); <br>
+			}<br>
+			greetMe("World");</code>
+		</section>
+		<section class="main-section" id="command_overview">
+			<header>COMMAND OVERVIEW</header>
+			<p> Since books on the Z80 are getting harder & harder to
+find, hopefully the information here might be helpful
+to those trying to understand assembly language
+specific to GameBoy.
+</p>
+			<p>The GameBoy has instructions & registers similar to the
+Intel 8080, Intel 8085, & Zilog Z80 microprocessors. It
+has eight 8-bit registers A,B,C,D,E,F,H,L and two 16-
+bit registers SP & PC:</p>
+			<p>The Fleg Register consists of the following bits:</p>
+			<code>
+			7	6	5	4	3	2	1	0 <br>
+			Z	N	H	C	O	O	O	O
+			</code>
+		</section>
+		<section class="main-section" id="sgb_commands">
+			<header>SGB COMMANDS</header>
+			<p> A SGB command transfer is 128 bits + a zero bit. The
+first five bits of the first byte is the command byte.
+The last 3 bits of the first byte represent the number
+of 128 bit packages to be sent. Unused bits in a SGB
+command transfer should be set to 0. </p>
+			<p>
+			 Most of the commands listed below only transfer one
+package. The command bytes below are preceded by the #
+character to remind you that they have to be shifted
+left three times before used.
+</p>
+		<p> Set SGB color Palettes: <p>
+		<code>
+			0 & 1 ($00,data) - Download color palettes 0 & 1 <br>
+			2 & 3 ($01,data) - Download color palettes 2 & 3 <br>
+			0 & 3 ($02,data) - Download color palettes 0 & 3 <br>
+			1 & 2 ($03,data) - Download color palettes 1 & 2 <br>
+		</code>
+		<p>Palette 0:</p>
+		<code>
+			DW $7c00 ;blue ;bit 01 color <br>
+			DW $03e0 ;green ;bit 10 color <br>
+			DW $0000 ;black ;bit 11 color <br>
+		</code>
+		<p>Palette 1:</p>
+		<code>
+			DW $03ff ;yellow ;bit 01 color <br>
+			DW $001f ;red ;bit 10 color <br>
+			DW $0000 ;black ;bit 11 color <br>
+		</code>
+		</section>
+		<section class="main-section" id="appendix_a">
+			<header>APPENDIX A</header>
+			<p>Notes for getting assembly language programs that run
+on an emulator to run on a real GB (by kOOPa, 2-Jan-98)</p>
+			<ol>
+			<li>Emulators tend to set all of RAM to $00 on power up.
+Real GBs do NOT initialize RAM on power up. RAM is
+filled with random values on power up. You must clear
+it yourself if you wish it to be set to some known
+value.</li> 
+			<li>The real hardware could care less about the ROM
+checksum ($14e,$14f) but the complement check ($14d)
+MUST be correct or programs will "lock up" after
+scrolling the Nintendo logo.<br> Use RGBFIX -V in the RGBDS development system to set
+the checksum and the complement byte after each
+source code compile. It doesn't matter whether you
+program in C or assembly, this program will fix it. </li> 
+			<li> The Nintendo scrolling graphic from $104 - $133 must
+be accurate. If one byte of it is changed then your
+programs will "lock up" after scrolling this graphic
+logo.</li>
+
+			</ol>
+		</section>
+		<p style="text-align: center; padding: 20px;"> website by sean bergeron @cashmerenoh</p>
+	</main>
+	<footer>
+	</footer>
+<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+</body>
+</html>
+
